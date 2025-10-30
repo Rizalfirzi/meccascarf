@@ -1,0 +1,176 @@
+/* Palet Warna Elegan:
+   Background: #F9F6F2 (Krem Pucat)
+   Teks Utama: #4E4A47 (Arang/Coklat Tua)
+   Aksen/Tombol: #D4A59A (Dusty Rose)
+   Teks Tombol: #FFFFFF (Putih)
+*/
+
+/* Canvas untuk Latar Belakang Animasi */
+#background-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Posisikan di belakang semua elemen */
+}
+
+/* Reset & Pengaturan Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Font bersih untuk teks */
+    background-color: #F9F6F2;
+    color: #4E4A47;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Keep this to align container to top */
+    min-height: 100vh;
+    padding: 20px;
+    position: relative; /* For pseudo-element */
+    overflow-x: hidden; /* Prevent horizontal scroll from pattern */
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 40px); /* Penuh tinggi layar dikurangi padding */
+    position: relative; /* To be on top of the pattern */
+    z-index: 1; /* Above body::before */
+}
+
+/* Header & Profil */
+header {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #D4A59A;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem;
+}
+
+.brand-name {
+    font-family: 'Playfair Display', serif; /* Font serif elegan untuk brand */
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #4E4A47;
+}
+
+.bio {
+    font-size: 1rem;
+    color: #6c6865;
+    margin-top: 0.5rem;
+}
+
+/* Daftar Link */
+.links-container {
+    width: 100%;
+}
+
+.links-container ul {
+    list-style: none;
+    width: 100%;
+}
+
+.links-container li {
+    width: 100%;
+    margin-bottom: 1.25rem;
+    /* Efek fade-in dari JS */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.links-container li a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    background-color: #D4A59A;
+    color: #FFFFFF;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 2px solid #D4A59A;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 165, 154, 0.2);
+}
+
+/* Efek Hover pada Tombol */
+.links-container li a:hover {
+    background-color: #FFFFFF;
+    color: #D4A59A;
+    transform: scale(1.03); /* Sedikit membesar saat disentuh */
+    box-shadow: 0 6px 20px rgba(212, 165, 154, 0.3);
+}
+
+/* Tombol "terlihat" (untuk JS) */
+.links-container li.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer & Ikon Sosial Media */
+.social-links {
+    margin-top: auto; /* Mendorong footer ke bagian bawah */
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+.social-links a {
+    font-size: 1.75rem;
+    color: #4E4A47;
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #D4A59A;
+}
+
+/* Aturan Responsif */
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        min-height: calc(100vh - 30px);
+    }
+
+    .profile-picture {
+        width: 100px;
+        height: 100px;
+    }
+
+    .brand-name {
+        font-size: 2rem;
+    }
+
+    .bio {
+        font-size: 0.9rem;
+    }
+
+    .links-container li a {
+        padding: 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    .social-links a {
+        font-size: 1.5rem;
+        margin: 0 0.75rem;
+    }
+}
