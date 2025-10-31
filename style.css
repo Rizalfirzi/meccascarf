@@ -96,7 +96,9 @@ header {
 }
 
 .links-container li a {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1rem;
     text-decoration: none;
     background-color: #D4A59A;
@@ -106,6 +108,18 @@ header {
     border: 2px solid #D4A59A;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(212, 165, 154, 0.2);
+}
+
+.links-container li a span {
+    margin-right: 10px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.link-logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
 }
 
 /* Efek Hover pada Tombol */
